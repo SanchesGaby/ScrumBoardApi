@@ -3,6 +3,9 @@ using ScrumBoardApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar a porta usando a variável de ambiente PORT do Render
+var port = Environment.GetEnvironmentVariable("PORT") ?? "80";
+builder.WebHost.UseUrls($"http://+:{port}");
 // ── Serviços ──────────────────────────────────────────
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
